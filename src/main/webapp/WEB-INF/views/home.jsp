@@ -31,7 +31,7 @@
 		</article>
 	</section>
 	<footer>
-		<p class="baegiyeol">주소: 충남 천안시 성정동 롯데마트 4층</p>
+		<p class="baegiyeol">주소: 충남 천안시 성정 롯데마트 4층</p>
 	</footer>
 </body>
 </html>
