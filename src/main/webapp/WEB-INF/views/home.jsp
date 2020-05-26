@@ -23,7 +23,7 @@ max-width:100%;
 height:auto;
 }
 </style>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/common.js"></script>
 <!-- 사용자 스크립트 -->
 <script>
