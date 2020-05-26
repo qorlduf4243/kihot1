@@ -36,7 +36,9 @@ top:100%;
 left:0;
 width:100%;
 background:#3f51b5;
+z-index:15;
 }
+
 .header .gnb li {
 border-bottom:1px solid #303f9f;
 }

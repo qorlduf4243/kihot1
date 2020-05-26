@@ -35,6 +35,15 @@ public class HomeController {
 		
 		return "weare";
 	}
+	
+	/**
+	 * we are 테스트용 파일 입니다.
+	 */
+	@RequestMapping(value = "/blog", method = RequestMethod.GET)
+	public String blog(Locale locale, Model model) {
+		
+		return "blog";
+	}
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
