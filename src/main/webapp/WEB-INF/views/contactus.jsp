@@ -71,6 +71,28 @@
 	font-family: 'Montserrat';
 	cursor: pointer;
 }
+/* 태블릿용 CSS */
+@media all and (min-width:768px) {
+	/* 태블릿 CONTACT US 영역 CSS */
+	.contact-section {
+		margin-top: 176px;
+	}
+	.contact-section .sec-tit {
+		margin-bottom: 76px;
+	}
+	.contact-section .form-box .form, .contact-section .form-box .textarea {
+		float: left;
+		width: 48.69791666666667%;
+		/* 374px ÷ 768px*/
+	}
+	.contact-section .form-box .form {
+		margin-right: 2.604166666666667%;
+		/* 20px ÷ 768px*/
+	}
+	.contact-section .form-box .form input:last-child{
+	margin-bottom:0;
+	}
+}
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/common.js"></script>
@@ -126,7 +148,10 @@
 		</section>
 		<footer class="footer">
 			<p class="copyright">LOGO</p>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.1908531424174!2d127.18028131558675!3d36.83790497994078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b293c64087a5b%3A0x1873dee0e6399a00!2z67Cx7ISd66y47ZmU64yA7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1513569521608" width="600" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.1908531424174!2d127.18028131558675!3d36.83790497994078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b293c64087a5b%3A0x1873dee0e6399a00!2z67Cx7ISd66y47ZmU64yA7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1513569521608"
+				width="600" height="450" frameborder="0" style="border: 0"
+				allowfullscreen=""></iframe>
 		</footer>
 	</div>
 </body>
