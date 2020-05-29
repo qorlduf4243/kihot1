@@ -17,53 +17,77 @@
 <style>
 /* BLOG 영역 CSS */
 .blog-section {
-margin-top:77px;
+	margin-top: 77px;
 }
+
 .blog-section .sec-tit {
-margin-bottom:47px;
-text-align:center;
+	margin-bottom: 47px;
+	text-align: center;
 }
+
 .blog-section .blog-list li {
-width:100%;
-margin-top:45px;
+	width: 100%;
+	margin-top: 45px;
 }
+
 .blog-section .blog-list li:first-child {
-margin-top:0;
+	margin-top: 0;
 }
+
 .blog-section .blog-list li img {
-display:block;
-width:100%;
-max-width:100%;
-height:auto;
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
 }
+
 .blog-section .blog-list li time {
-display:block;
-margin:11px 0 10px 0;
-font-size:11px;
-color:#9e9e9e;
+	display: block;
+	margin: 11px 0 10px 0;
+	font-size: 11px;
+	color: #9e9e9e;
 }
+
 .blog-section .blog-list li h3 {
-color:#424242;
-font-weight:normal;
-line-height:1.6;
+	color: #424242;
+	font-weight: normal;
+	line-height: 1.6;
 }
 /* 태블릿용 CSS */
 @media all and (min-width:768px) {
-.blog-section {
-margin-top:124px;
+	.blog-section {
+		margin-top: 124px;
+	}
+	.blog-section .sec-tit {
+		margin-bottom: 76px;
+	}
+	.blog-section .blog-list li {
+		float: left;
+		width: 31.59722222222%;
+		margin-left: 2.60416666666%;
+		margin-top: 0;
+	}
+	.blog-section .blog-list li:first-child {
+		margin-left: 0;
+	}
 }
-.blog-section .sec-tit {
-margin-bottom:76px;
-}
-.blog-section .blog-list li {
-float:left;
-width:31.59722222222%;
-margin-left:2.60416666666%;
-margin-top:0;
-}
-.blog-section .blog-list li:first-child {
-margin-left:0;
-}
+/* PC용 BLOG 영역 CSS */
+@media all and (min-width:1132px) {
+	.blog-section .sec-tit {
+		float: left;
+		margin-bottoom: 0;
+	}
+	.blog-section .blog-list {
+		float: right;
+		width: 74.5583038869258%;
+		/* 844px ÷ 1132px */
+	}
+	.blog-section .blog-list li {
+		width: 31.75355450236967%;
+		/* 268px ÷ 844px */
+		margin-left: 2.369668246445498%;
+		/* 20px ÷ 844px */
+	}
 }
 </style>
 <script src="/resources/js/jquery.min.js"></script>
@@ -96,14 +120,17 @@ margin-left:0;
 			<div class="container">
 				<h2 class="sec-tit">BLOG</h2>
 				<ul class="blog-list">
-					<li><a href="#" onclick="return false"><img src="/resources/images/qwe.jpg" alt=""></a>
-						<time datetime="2016-10-30">OCT 30, 2016</time> <a href=""><h3>타임스페이스는
+					<li><a href="#" onclick="return false"><img
+							src="/resources/images/qwe.jpg" alt=""></a> <time
+							datetime="2016-10-30">OCT 30, 2016</time> <a href=""><h3>타임스페이스는
 								사용자 중심의 웹페이지를 제작하는 회사 입니다.</h3></a></li>
-					<li><a href="#" onclick="return false"><img src="/resources/images/qwe.jpg" alt=""></a>
-						<time datetime="2016-10-30">OCT 30, 2016</time> <a href=""><h3>타임스페이스는
+					<li><a href="#" onclick="return false"><img
+							src="/resources/images/qwe.jpg" alt=""></a> <time
+							datetime="2016-10-30">OCT 30, 2016</time> <a href=""><h3>타임스페이스는
 								사용자 중심의 웹페이지를 제작하는 회사 입니다.</h3></a></li>
-					<li><a href="#" onclick="return false"><img src="/resources/images/qwe.jpg" alt=""></a>
-						<time datetime="2016-10-30">OCT 30, 2016</time> <a href=""><h3>타임스페이스는
+					<li><a href="#" onclick="return false"><img
+							src="/resources/images/qwe.jpg" alt=""></a> <time
+							datetime="2016-10-30">OCT 30, 2016</time> <a href=""><h3>타임스페이스는
 								사용자 중심의 웹페이지를 제작하는 회사 입니다.</h3></a></li>
 				</ul>
 			</div>
