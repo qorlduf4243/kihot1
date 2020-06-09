@@ -4,7 +4,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.edu</groupId>
 	<artifactId>controller</artifactId>
-	<name>TEST</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -115,7 +114,13 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>    
+	    <!-- 서버시간 가져오기 pom.xml -->
+		<dependency>
+		    <groupId>commons-net</groupId>
+		    <artifactId>commons-net</artifactId>
+		    <version>3.6</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>
@@ -155,4 +160,5 @@
             </plugin>
         </plugins>
     </build>
+    <name>kihot4243</name>
 </project>
