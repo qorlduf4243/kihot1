@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
-	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd">
+   
+   <!-- Root Context: defines shared resources visible to all other web components -->
+   <!-- hsql 
+    <jdbc:embedded-database id="dataSource" type="HSQL">
+    <jdbc:script location= "classpath:/db/edu_hsql.sql"/>
+   </jdbc:embedded-database>-->   
+   
+   <!-- 테스트 실행용 DB매니저 실행:김일국 추가 실제 사용시 아래 value - - 공백제거 하세요.
+   <bean depends-on="dataSource"
+   class="org.springframework.beans.factory.config.MethodInvokingBean">
+   <property name="targetClass" value="org.hsqldb.util.DatabaseManagerSwing" />
+   <property name="targetMethod" value="main" />
+   <property name="arguments">
+      <list>
+         <value>- -url</value>
+         <value>jdbc:hsqldb:mem:dataSource</value>
+         <value>- -user</value>
+         <value>sa</value>
+         <value>- -password</value>
+         <value></value>
+      </list>
+   </property>
+   </bean>
+   -->
+   
+   <!-- 로컬 mysql log4jdbc 설정전
+   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+      <property name="url" value="jdbc:mysql://127.0.0.1:3306/edu"></property>
+       <property name="username" value="root"></property>
+      <property name="password" value="apmsetup"></property>
+      </bean>
+      -->
+   <!-- 로컬 PC 강제입력 방식 DB커넥션 정상작동 OK -->
+   <!-- 로컬 mysql ...139, 160, 326p.log4jdbc 설정후    --> 
+   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" 
+              value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+      <property name="url" 
+              value="jdbc:log4jdbc:mysql://127.0.0.1:3306/edu"></property>
+      <property name="username" value="root"></property>
+      <property name="password" value="apmsetup"></property>
+      
+   </bean>
+     
 </beans>

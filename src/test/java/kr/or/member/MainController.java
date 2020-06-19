@@ -20,23 +20,23 @@ public class MainController {
 
 	public static void main(String[] args) throws IOException { //진입점
 		System.out.println("클래스형 변수-사용자 정의 자료형");
-		// MemberVO 클래스를 실행하기 위해 new 연산자를
+		// MemberVO 클래스를 실행하기 위해 new 연산자를 사용한다.
 		MemberVO m1 = new MemberVO();
 		// setter 메소드를 이용해 해당 인스턴스 변수에 값을 넣는다.
-		m1.setName("홍길동");
+		m1.setName("배기열");
 		m1.setAge(45);
 		m1.setPhoneNum("000-0000-0000");
 		// 마찬가지로 다른 MemberVO객체(instance)를 생성해서 값을 넣는다.
 		MemberVO m2 = new MemberVO();
 		MemberVO m3 = new MemberVO();
-		m2.setName("성춘향");
+		m2.setName("배기열");
 		m2.setAge(100);
 		m2.setPhoneNum("111-1111-1111");
-		m3.setName("각시탈");
+		m3.setName("배기열");
 		m3.setAge(3);
 		m3.setPhoneNum("222-2222-2222");
 
-		// 크기가 3인 MemberVO클래스ㅡㄹ 배열객체로 선언
+		// 크기가 3인 MemberVO클래스를 배열객체로 선언
 		MemberVO[] members = new MemberVO[3];
 		//MemberVO[]배열클래스 참조index에 m1,m2,m3를 넣는다
 		members[0] = m1;
@@ -53,12 +53,15 @@ public class MainController {
 		try {
 		timeClient.open();
 		//throw new RuntimeException();//강제 오류예외(Exception) 처리
+		//try 구문에서 오류가 발생하지 않아 catch 구문의 입력된 문자를 출력하지 않고
+		//finally 구문으로 이동하여 입력한 문자 출력
 		} catch (SocketException e) {
 			System.out.println("open메서드 실행 오류");
 			e.printStackTrace();
 		} finally {
 			System.out.println("이부분은 성공/오류에 상관없이 항상 실행됩니다.");
 		}
+		//자바에 존재하는 서버 시간을 가져오는 프로그램을 사용하겠다.
 		InetAddress address = InetAddress.getByName(TIME_SERVER);
 	    TimeInfo timeInfo = timeClient.getTime(address);
 	    //서버로부터 시간 가져오는 코드
