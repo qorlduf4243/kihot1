@@ -1,0 +1,5 @@
+2020-06-22 10:42:38,920 DEBUG [kr.or.test.Log4jTest] 디버그!!kr.or.test.MemberVO@3f8f9dd6
+2020-06-22 10:42:38,922  INFO [kr.or.test.Log4jTest] 인포!!
+2020-06-22 10:42:38,922  WARN [kr.or.test.Log4jTest] 워닝!!
+2020-06-22 10:42:38,922 ERROR [kr.or.test.Log4jTest] 에러!!
+2020-06-22 10:42:38,922 FATAL [kr.or.test.Log4jTest] 파탈에러!!

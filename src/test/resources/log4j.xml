@@ -11,18 +11,21 @@
    </appender>
    
    <!-- 파일에 로그 찍기! -->
-    <appender name="fileLogger" class="org.apache.log4j.RollingFileAppender">
-        <param name="file" value="./spring.Log"/>
-        <param name="Append" value="true"/>
-        <!-- 로그 파일 하나당 사이즈 1m -->
-        <param name="MaxFileSize" value="1000kb"/>
-        <!-- 최대 생성 파일수 ( 50개가 넘으면 순차적으로 파일이 삭제됨 -->
-        <param name="MaxBackupIndex" value="3" />
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" 
-            value="[%d{yyyy-MM-dd HH:mm:ss}] %-5p: %F:%L - %m%n" />
-        </layout>
-    </appender>
+    <!-- log4j-1.3alpha-8 스타일 - 패키지 변경 및 policy 처리로 구조 변경 됨 -->
+<appender name="fileLogger" class="org.apache.log4j.rolling.RollingFileAppender">
+	<rollingPolicy class="org.apache.log4j.rolling.FixedWindowRollingPolicy">
+		<param name="FileNamePattern" value="./spring.%i.log" />
+		<!-- %i 는 하단의 MaxIndex 값(현재 3) 을 받는다. 3개까지만 출력된다는 뜻 -->
+		<param name="MaxIndex" value="3" />
+	</rollingPolicy>
+	<triggeringPolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">
+		<param name="MaxFileSize" value="1000" />
+	</triggeringPolicy>
+	<layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" value="%d %5p [%c] %m%n" />
+	</layout>
+</appender>
+    
    <!-- Application Loggers -->
    <logger name="kr.or.test">
    <level value="debug"></level>
