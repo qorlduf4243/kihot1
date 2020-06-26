@@ -12,6 +12,7 @@ public class MemberVO {
 	private String levels;
 	private Date reg_date;
 	private Date update_date;
+	
 	public String getUser_id() {
 		return user_id;
 	}
@@ -66,6 +67,13 @@ public class MemberVO {
 	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
 	}
+	@Override
+	public String toString() {
+		return "MemberVO [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", email=" + email
+				+ ", point=" + point + ", enabled=" + enabled + ", levels=" + levels + ", reg_date=" + reg_date
+				+ ", update_date=" + update_date + "]";
+	}
+	
 	
 	
 }

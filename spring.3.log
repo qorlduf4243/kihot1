@@ -1,11 +1,2 @@
-2020-06-22 10:41:54,564  WARN [org.apache.log4j.joran.action.PriorityAction] Priority element has been deprecated, please use <level> instead.
-2020-06-22 10:41:54,586  INFO [kr.or.test.Log4jTest] test라는 메서드를 사용한 PC의 아이피는 : 192.168.56.1
-2020-06-22 10:41:54,586 DEBUG [kr.or.test.Log4jTest] 디버그!!kr.or.test.MemberVO@3f8f9dd6
-2020-06-22 10:41:54,586  INFO [kr.or.test.Log4jTest] 인포!!
-2020-06-22 10:41:54,586  WARN [kr.or.test.Log4jTest] 워닝!!
-2020-06-22 10:41:54,586 ERROR [kr.or.test.Log4jTest] 에러!!
-2020-06-22 10:41:54,586 FATAL [kr.or.test.Log4jTest] 파탈에러!!
-2020-06-22 10:42:10,451  WARN [org.apache.log4j.joran.action.PriorityAction] Priority element has been deprecated, please use <level> instead.
-2020-06-22 10:42:10,471  INFO [kr.or.test.Log4jTest] test라는 메서드를 사용한 PC의 아이피는 : 192.168.56.1
-2020-06-22 10:42:10,471 DEBUG [kr.or.test.Log4jTest] 디버그!!kr.or.test.MemberVO@3f8f9dd6
-2020-06-22 10:42:10,471  INFO [kr.or.test.Log4jTest] 인포!!
+2020-06-26 09:25:47,695 DEBUG [org.springframework.test.context.web.ServletTestExecutionListener] Resetting RequestContextHolder for test context [DefaultTestContext@6fc6f14e testClass = DataSourceTest, testInstance = org.edu.test.DataSourceTest@4e4efc1b, testMethod = testInsertMember@DataSourceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@56235b8e testClass = DataSourceTest, locations = '{file:src/main/webapp/WEB-INF/spring/**/*.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+2020-06-26 09:25:47,700 DEBUG [org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener] After test class: context [DefaultTestContext@6fc6f14e testClass = DataSourceTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@56235b8e testClass = DataSourceTest, locations = '{file:src/main/webapp/WEB-INF/spring/**/*.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
