@@ -36,4 +36,9 @@ public class MemberServiceImpl implements IF_MemberService{
 		
 	}
 
+	@Override
+	public MemberVO viewMember(String user_id) throws Exception {
+		return memberDAO.viewMember(user_id);
+	}
+
 }

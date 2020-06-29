@@ -37,45 +37,39 @@
                            <div class="col-sm-12">
                               <!-- text input -->
                               <div class="form-group">
-                                 <label>user_id</label> <input type="text" class="form-control"
-                                    placeholder="user02">
+                                 <label>user_id</label> <br> ${memberVO.user_id}
                               </div>
                            </div>
 
                            <div class="col-sm-12">
                               <!-- text input -->
                               <div class="form-group">
-                                 <label>user_name</label> <input type="text" class="form-control"
-                                    placeholder="user02">
+                                 <label>user_name</label> <br> ${memberVO.user_name}
                               </div>
                            </div>
 
                            <div class="col-sm-12">
                               <!-- text input -->
                               <div class="form-group">
-                                 <label>email</label> <input type="text" class="form-control"
-                                    placeholder="user02@edu.com">
+                                 <label>email</label> <br> ${memberVO.email}
                               </div>
                            </div>
 
                            <div class="col-sm-12">
                               <!-- text input -->
                               <div class="form-group">
-                                 <label>point</label> <input type="text" class="form-control"
-                                    placeholder="0">
+                                 <label>point</label> <br> ${memberVO.point}
                               </div>
                            </div>
                               <div class="col-sm-12">
                               <div class="form-group">
-                                 <label>enabled</label> <input type="text" class="form-control"
-                                    placeholder="true">
+                                 <label>enabled</label> <br> ${memberVO.enabled}
                               </div>
                            </div>
                               <div class="col-sm-12">
                               <!-- text input -->
                               <div class="form-group">
-                                 <label>level</label> <input type="text" class="form-control"
-                                    placeholder="ROLE_ADMIN">
+                                 <label>level</label> <br> ${memberVO.levels}
                               </div>
                            </div>
                            <div class="form-group">

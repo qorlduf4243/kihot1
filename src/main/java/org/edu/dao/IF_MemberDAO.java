@@ -9,6 +9,6 @@ public interface IF_MemberDAO {
 	public List<MemberVO> selectMember() throws Exception;
 	public void updateMember(MemberVO memberVO) throws Exception;
 	public void deleteMember(String user_id) throws Exception;
-	
+	public MemberVO viewMember(String user_id) throws Exception;
 
 }

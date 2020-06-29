@@ -73,7 +73,7 @@
                    <c:forEach items="${boardList}" var="boardVO" varStatus="status">
                     <tr>
                       <td>${boardVO.bno}</td>
-                      <td>${boardVO.title}</td>
+                      <td><a href="/admin/board/view?bno=${boardVO.bno}">${boardVO.title}</a></td>
                       <td>${boardVO.writer}</td>
                       <td><span class="tag tag-success">${boardVO.regdate}</span></td>
                       <td><span class="badge badge-danger right">${boardVO.view_count}</span></td>                    

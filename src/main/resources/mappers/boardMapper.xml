@@ -16,8 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="org.edu.dao.IF_BoardDAO">
    <insert id="insertBoard">
-      insert into tbl_board (bno,title,content,writer,regdate,view_count,reply_count) 
-      values (#{bno},#{title},#{content},#{writer},now(),#{view_count},#{reply_count}) 
+      insert into tbl_board (title,content,writer,regdate,view_count,reply_count) 
+      values (#{title},#{content},#{writer},now(),#{view_count},#{reply_count}) 
    </insert>
    <select id="selectBoard" resultType="org.edu.vo.BoardVO">
    <![CDATA[  
@@ -37,5 +37,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    <delete id="deleteBoard">
       delete from tbl_board where bno = #{bno}
    </delete>
+   <select id="viewBoard" resultType="org.edu.vo.BoardVO">
+      select * from tbl_board where bno = #{bno}
+   </select>
 
 </mapper>

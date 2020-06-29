@@ -35,8 +35,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		levels = #{levels},
 		update_date = now() 
 		where user_id = #{user_id}
+		
+		
 	</update>
 	<delete id="deleteMember">
 		delete from tbl_member where user_id = #{user_id}
 	</delete>
+	<select id="viewMember" resultType="org.edu.vo.MemberVO">
+		select * from tbl_member where user_id = #{user_id}
+	</select>
 </mapper>

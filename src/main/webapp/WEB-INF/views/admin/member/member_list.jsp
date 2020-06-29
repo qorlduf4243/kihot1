@@ -87,7 +87,7 @@
                     </tr>
                     </C:forEach>
                   </tbody>
-            <td> <button type="submit" class="btn btn-primary">CREATE</button>
+            <td> <a href="/admin/member/write" class="btn btn-primary">CREATE</a>
                </td>
            <td>
               <nav aria-label="Contacts Page Navigation">
