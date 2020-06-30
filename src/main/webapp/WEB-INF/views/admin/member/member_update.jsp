@@ -28,24 +28,25 @@
 					<!-- general form elements disabled -->
 					<div class="card card-warning">
 						<div class="card-header">
-							<h3 class="card-title">회원등록</h3>
+							<h3 class="card-title">회원수정</h3>
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form role="form" action="/admin/member/write" method="post">
+							<form role="form" action="/admin/member/update" method="post">
 								<div class="row">
 									<div class="col-sm-12">
 										<!-- text input -->
 										<div class="form-group">
-											<label>user_id</label> <input name="user_id" type="text" class="form-control"
+											<label>user_id</label>
+											 <br>${memberVO.user_id}
+											 <input value="${memberVO.user_id}" name="user_id" type="hidden" class="form-control"
 												placeholder="Enter user_id">
 										</div>
 									</div>
-
 									<div class="col-sm-12">
 										<!-- text input -->
 										<div class="form-group">
-											<label>user_pw</label> <input name="user_pw" type="text" class="form-control"
+											<label>user_pw</label> <input value="${memberVO.user_pw}" name="user_pw" type="text" class="form-control"
 												placeholder="Enter user_pw">
 										</div>
 									</div>
@@ -53,7 +54,7 @@
 									<div class="col-sm-12">
 										<!-- text input -->
 										<div class="form-group">
-											<label>user_name</label> <input name="user_name" type="text" class="form-control"
+											<label>user_name</label> <input value="${memberVO.user_name}" name="user_name" type="text" class="form-control"
 												placeholder="Enter user_name">
 										</div>
 									</div>
@@ -61,31 +62,39 @@
 									<div class="col-sm-12">
 										<!-- text input -->
 										<div class="form-group">
-											<label>email</label> <input name="email" type="text" class="form-control"
+											<label>email</label> <input value="${memberVO.email}" name="email" type="text" class="form-control"
 												placeholder="Enter email">
 										</div>
 									</div>
 										<div class="col-sm-12">
 										<div class="form-group">
-											<label>point</label> <input name="point" type="text" class="form-control"
+											<label>point</label> <input value="${memberVO.point}" name="point" type="text" class="form-control"
 												placeholder="0">
 										</div>
 									</div>
 									<div class="form-group">
                         <label>enabled</label>
                         <select name="enabled" class="form-control">
-                          <option value="0">false</option>
-                          <option value="1" selected>true</option>
+                          <option value="0" <c:out value="${memberVO.enabled eq 'false'?'selected':''}" />>
+                          false
+                          </option>
+                          <option value="1" <c:out value="${memberVO.enabled eq 'true'?'selected':''}" />>
+                          true
+                          </option>
                         </select>
                         <label>level</label>
                         <select name="levels" class="form-control">
-                          <option value="ROLE_USER">ROLE_USER</option>
-                          <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+                          <option value="ROLE_USER"
+                          <c:out value="${memberVO.levels eq 'ROLE_USER'?'selected':''}" />
+                          >ROLE_USER</option>
+                          <option value="ROLE_ADMIN"
+                          <c:out value="${memberVO.levels eq 'ROLE_ADMIN'?'selected':''}" />
+                          >ROLE_ADMIN</option>
                         </select>
                      <br>
                      <div class = "buttons">
 									<button type="submit" class="btn btn-warning">Submit</button>
-									<a herf="/admin/member/list" class="btn btn-primary">LIST ALL</a>
+									<a href="/admin/member/list" class="btn btn-primary">LIST ALL</a>
 								</div>
 								</div>
 								</div>

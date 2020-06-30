@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </insert>
    <select id="selectBoard" resultType="org.edu.vo.BoardVO">
    <![CDATA[  
-      select * from tbl_board order by regdate DESC
+      select * from tbl_board order by bno DESC
    ]]>  
    </select>
    <update id="updateBoard">
@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       writer = #{writer},
       update_date = now(),
       view_count = #{view_count},
-      reply_count = #{reply_count},
+      reply_count = #{reply_count}
       where bno = #{bno}
    </update>
    <delete id="deleteBoard">
