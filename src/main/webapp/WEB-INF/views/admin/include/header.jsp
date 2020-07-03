@@ -18,6 +18,11 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
+<script>
+	if ('${msg}' != "") {
+		alert("${msg}에 성공하였습니다.!");
+	}
+</script>
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -94,12 +99,12 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/admin/member/list" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a href="/admin/member/list"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>회원관리</p>
 								</a></li>
-								<li class="nav-item"><a href="/admin/board/list" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a href="/admin/board/list"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>게시판관리</p>
 								</a></li>
 							</ul></li>

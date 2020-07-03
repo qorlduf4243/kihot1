@@ -23,7 +23,7 @@ public class DebugAdvice {
 	 * ...@Around를 이용하는 경우 반드시 메서드의 리턴타입은 Object로 선언해야 함.
 	 * ...@Around는 메서드를 직접 호출하고, 결과를 반환해야만 정상적인 처리가 됨. 
 	 */
-	@Around("execution(* org.edu.service.MemberService*.*(..))")//...495p.주석.트랜잭션.
+	@Around("execution(* org.edu.controller.AdminController.*(..))")//...495p.주석.트랜잭션.
 	public Object timeLog(ProceedingJoinPoint pjp)throws Throwable{
 		    
 	  logger.debug("S.debugLog.=============================================");
