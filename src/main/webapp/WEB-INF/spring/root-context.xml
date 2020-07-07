@@ -1,0 +1,96 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.1.xsd">
+	<!-- jdbd태그를 사용하기 위해서 가져옴 -->
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- hsql -->
+	<!--embedded-database: 내장형 데이터 베이스(메모리 데이터베이스) -->
+	<jdbc:embedded-database id="dataSource"
+		type="HSQL">
+		<jdbc:script location="classpath:/db/edu_hsql.sql" />
+	</jdbc:embedded-database>
+
+	<!-- 테스트 실행용 DB매니저 실행:김일국 추가 실제 사용시 아래 value - - 공백제거 하세요. <bean depends-on="dataSource" 
+		class="org.springframework.beans.factory.config.MethodInvokingBean"> <property 
+		name="targetClass" value="org.hsqldb.util.DatabaseManagerSwing" /> <property 
+		name="targetMethod" value="main" /> <property name="arguments"> <list> <value>- 
+		-url</value> <value>jdbc:hsqldb:mem:dataSource</value> <value>- -user</value> 
+		<value>sa</value> <value>- -password</value> <value></value> </list> </property> 
+		</bean> -->
+
+	<!-- 로컬 mysql log4jdbc 설정전 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property> 
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/edu"></property> 
+		<property name="username" value="root"></property> <property name="password" 
+		value="apmsetup"></property> </bean> -->
+
+
+	<!-- 로컬 PC 강제입력 방식 DB커넥션 정상작동 OK -->
+	<!-- 로컬 mysql ...139, 160, 326p.log4jdbc 설정후 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property> 
+		<property name="url" value="jdbc:log4jdbc:mysql://127.0.0.1:3306/edu"></property> 
+		<property name="username" value="root"></property> <property name="password" 
+		value="apmsetup"></property> </bean> -->
+
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- JDBC커넥션을 처리하는 DataSource와 mybatis를 연결. -->
+		<property name="dataSource" ref="dataSource" />
+
+		<!-- root-context.xml :: sqlSessionFactory 에 매퍼 xml 파일의 경로를 인식하게 함. -->
+		<property name="mapperLocations"
+			value="classpath:mappers/**/*Mapper.xml"></property>
+	</bean>
+
+
+	<!-- 1. mybatis-spring 을 이용하여 인터페이스로 작성된 Mapper 를 인식시킴. mybatis-spring 의 
+		MapperFactoryBean 를 이용하면 개발자가 직접 DAO 를 설정하지 않고도 자동으로 Mapper 인터페이스를 활용하는 개체를 
+		생성할 수 있음. <bean id="sampleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+		<property name="mapperInterface" value="org.joywins.dao.IF_SampleMapper"/> 
+		<property name="sqlSessionFactory" value="sqlSessionFactory"/> </bean> 위 
+		1.과 같이 하면 매번 Mapper 인터페이스를 인식시켜야 하므로 아래 설정으로 mybatis-spring:scan 은 자동으로 해당 
+		패키지 안에 선언된 인터페이스를 Mapper 로 인식함. <mybatis-spring:scan base-package="org.edu.dao"/> -->
+
+	<!-- ...133, 176p.MyBatis에서 DAO를 이용하는 경우, SqlSessionTemplate라는 것을 이용해서 DAO를 
+		구현함. mybatis-spring에서 제공하는 SqlSessionTempalte객체는 기본적인 트랜잭션 관리나 쓰레드 처리의 안정성등을 
+		보장해주고, 개발자들이 직접 DB 연결, 종료작업하는 것을 줄여줌. SqlSessionFactory를 생성자로 주입함. -->
+
+
+
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate"
+		destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+
+
+	<context:component-scan
+		base-package="org.edu.dao" />
+	<context:component-scan
+		base-package="org.edu.service" />
+
+	<context:component-scan
+		base-package="org.edu.aop"></context:component-scan>
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<aop:config></aop:config>
+
+	<!-- 대표적으로 게시판 입력 트랜잭션에서 이용 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<tx:annotation-driven />
+</beans>
