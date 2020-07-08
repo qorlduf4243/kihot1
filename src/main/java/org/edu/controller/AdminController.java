@@ -145,7 +145,7 @@ public class AdminController {
 		return "admin/board/board_update";
 	}
 	@RequestMapping(value = "/admin/board/update", method = RequestMethod.POST)
-	public String boardUpdate(@ModelAttribute("pageVO") PageVO pageVO, MultipartFile file,@Valid BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+	public String boardUpdate(@ModelAttribute("pageVO") PageVO pageVO, MultipartFile file, @Valid BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
 		if(file.getOriginalFilename() == "") {//조건:첨부파일 전송 값이 없다면
 			boardService.updateBoard(boardVO);
 		} else {

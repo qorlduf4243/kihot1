@@ -67,9 +67,9 @@
 									</div>
 									
 									<div class="buttons">
-										<a href="/admin/board/update?bno=${boardVO.bno}" class="btn btn-warning">UPDATE</a>
+										<a href="/admin/board/update?bno=${boardVO.bno}&page=${pageVO.page}" class="btn btn-warning">UPDATE</a>
 										<button type="submit" class="btn btn-danger">DELETE</button>
-										<a href="/admin/board/list" class="btn btn-primary">LIST ALL</a>
+										<a href="/admin/board/list?page=${pageVO.page}" class="btn btn-primary">LIST ALL</a>
 									</div>
 								</div>
 							<input type="hidden" name="bno" value="${boardVO.bno}">
