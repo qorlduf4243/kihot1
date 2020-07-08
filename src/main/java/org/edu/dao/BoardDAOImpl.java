@@ -1,11 +1,14 @@
 package org.edu.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.edu.vo.BoardVO;
+import org.edu.vo.PageVO;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -22,8 +25,8 @@ public class BoardDAOImpl implements IF_BoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> selectBoard() throws Exception {
-		return sqlSession.selectList(mapperQuery + ".selectBoard");
+	public List<BoardVO> selectBoard(PageVO pageVO) throws Exception {
+		return sqlSession.selectList(mapperQuery + ".selectBoard", pageVO);
 	}
 
 	@Override
@@ -54,6 +57,19 @@ public class BoardDAOImpl implements IF_BoardDAO {
 	@Override
 	public void deleteAttach(Integer bno) throws Exception {
 		sqlSession.delete(mapperQuery + ".deleteAttach", bno);
+	}
+
+	@Override
+	public void updateAttach(String fullName, Integer bno) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("bno", bno);
+		paramMap.put("fullname", fullName);
+		sqlSession.insert(mapperQuery + ".updateAttach", paramMap);
+	}
+
+	@Override
+	public int countBno(PageVO pageVO) throws Exception {
+		return sqlSession.selectOne(mapperQuery + ".countBno", pageVO);
 	}
 
 	

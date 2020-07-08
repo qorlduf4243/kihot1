@@ -27,10 +27,15 @@
       class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
       <beans:property name="maxUploadSize" value="10485760"></beans:property>
    </beans:bean>
-   <!-- 업로드한 파일이 저장되는 위치: 운영서버에 올릴떄는 /temp 로 변경 후 올리세요. -->
+   <!-- 업로드한 파일이 저장되는 위치: 운영서버용 /tmp 로 변경 후 올리세요. -->
    <beans:bean id="uploadPath" class="java.lang.String">
+       <beans:constructor-arg value="/tmp">
+       </beans:constructor-arg>
+   </beans:bean>
+   <!-- 업로드한 파일이 저장되는 위치: 로컬pc용
+    <beans:bean id="uploadPath" class="java.lang.String">
        <beans:constructor-arg value="C:\\egov\\workspace\\upload">
        </beans:constructor-arg>
    </beans:bean>
-   
+    -->
 </beans:beans>
