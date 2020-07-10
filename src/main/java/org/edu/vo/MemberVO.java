@@ -2,7 +2,10 @@ package org.edu.vo;
 
 import java.util.Date;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class MemberVO {
+	@NotBlank(message="사용자 아이디는 필수 입력사항입니다!")
 	private String user_id;
 	private String user_pw;
 	private String user_name;

@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 
 import org.edu.service.IF_MemberService;
 import org.edu.vo.MemberVO;
+import org.edu.vo.PageVO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -31,7 +32,7 @@ public class DataSourceTest {// 스프링 프로젝트 테스트는 여기서 �
 		Connection con = ds.getConnection();
 		System.out.println("데이터베이스 커넥션 성공 : " + con);
 	}
-	
+
 	@Test
 	public void testDeleteMember() throws Exception {
 		memberService.deleteMember("user02");
@@ -49,7 +50,7 @@ public class DataSourceTest {// 스프링 프로젝트 테스트는 여기서 �
 		memberVO.setLevels("ROLE_USER");
 		memberService.updateMember(memberVO);
 	}
-	
+
 	@Test
 	public void testInsertMember() throws Exception {
 		MemberVO memberVO = new MemberVO();
@@ -66,13 +67,16 @@ public class DataSourceTest {// 스프링 프로젝트 테스트는 여기서 �
 	@Test
 	public void testSelectMember() throws Exception {
 		System.out.println("회원리스트 입니다.");
-		memberService.selectMember();
-		
-		/*
-		 * List<MemberVO> list = memberService.selectMember(); for(MemberVO vo:list) {
-		 * System.out.println("사용자아이디 : "+ vo.getUser_id());
-		 * System.out.println("사용자이메일 : " + vo.getEmail());
-		 */
-	}
+		PageVO pageVO = new PageVO();
+		pageVO.setPage(1);
+		pageVO.setPerPageNum(10);
+		memberService.selectMember(pageVO);
+		List<MemberVO> list = memberService.selectMember(pageVO);
+		System.out.println(list);
+		/*for (MemberVO vo : list) {
+			System.out.println("사용자아이디 : " + vo.getUser_id());
+			System.out.println("사용자이메일 : " + vo.getEmail());
 
+		}*/
+	}
 }
