@@ -23,11 +23,11 @@
       <property name="username" value="sa" />
       <property name="password" value="" />
    </bean> 
-   <!-- CREATE TABLE 초기 1회만 실행    
+   <!-- CREATE TABLE 초기 1회만 실행 -->
    <jdbc:initialize-database data-source="dataSource" ignore-failures="DROPS"> 
       <jdbc:script location="classpath:/db/embeded_edu_dummy.sql" /> 
    </jdbc:initialize-database>
-   -->
+   
    <!-- hsql 메모리 DB용
     <jdbc:embedded-database id="dataSource" type="HSQL">
       <jdbc:script location= "classpath:/db/edu_hsql.sql"/>
