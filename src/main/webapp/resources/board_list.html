@@ -40,7 +40,6 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Notifications Dropdown Menu -->
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
             class="fas fa-th-large"></i></a>
@@ -67,8 +66,8 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">User02
-          <span class="right badge badge-danger">Online</span>
-          </a>
+           <span class="right badge badge-danger">Online</span>
+           </a>
         </div>
       </div>
 
@@ -84,21 +83,21 @@
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>대시보드
+              <p>Dashboard
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="/admin/board/list" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>관리자관리</p>
+                  <p>회원 관리</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/board/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>게시판관리</p>
+                  <p>게시물 관리</p>
                 </a>
               </li>
             </ul>
@@ -117,21 +116,43 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Starter Page</h1>
+            <h1 class="m-0 text-dark">DashBoard Management</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Starter Page</li>
-            </ol>          
+            </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
-        
-        
-    <div class="col-12">
+      </div><!-- /.container-fluid -->
+      <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">게시판 검색</h3>
+                </div>
+                </div>
+                </div>
+                <div class="col-1" style="display:inline-block" >
+                        <select class="form-control">
+                          <option>--</option>
+                        </select>
+                        </div>
+                        <div class="search" style="display:inline">
+     <input type="text" placeholder="">
+<div class="button" style="display:inline">
+     <button>검색</button>
+</div>
+<div class="button" style="display:inline">
+     <button>새글쓰기</button>
+     </div>
+                        </div>
+    
+</div>
+        <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">LIST ALL PAGE</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -148,62 +169,68 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
+                      <th>BNO</th>
+                      <th>TITLE</th>
+                      <th>WRITE</th>
+                      <th>REGDATE</th>
+                      <th>VIEWCNT</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>130</td>
+                      <td>홈페이지 오픈 테스트</td>
+                      <td>kim ilguk</td>
+                      <td><span class="tag tag-success">2019-10-19 08:58</span></td>
+                      <td><span class="badge badge-danger right">1</span></td>
                     </tr>
                     <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>124</td>
+                      <td>새로운 글을 넣습니다.</td>
+                      <td>user00</td>
+                      <td><span class="tag tag-warning">2019-10-19 08:58</span></td>
+                      <td><span class="badge badge-danger right">0</span></td>
                     </tr>
                     <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>123</td>
+                      <td>새로운 글을 넣습니다.</td>
+                      <td>user00</td>
+                      <td><span class="tag tag-primary">2019-10-19 08:58</span></td>
+                      <td><span class="badge badge-danger right">0</span></td>
                     </tr>
                     <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
+                      <td>122</td>
+                      <td>새로운 글을 넣습니다.</td>
+                      <td>user00</td>
+                      <td><span class="tag tag-danger">2019-10-19 08:58</span></td>
+                      <td><span class="badge badge-danger right">0</span></td>
+                      </tr>
                   </tbody>
+            <td> <button type="submit" class="btn btn-primary">CREATE</button>
+               </td>
+           <td>
+              <nav aria-label="Contacts Page Navigation">
+            <ul class="pagination justify-content-center m-0">
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            </ul>
+          </nav>
+               </td>
                 </table>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
-       
-           
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
+ 
     
     </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+   <!-- ./Content Wrapper. Contains page content -->
+
+  <!-- Main content -->  
+   <div class="content">
+   
+   </div>
+   <!-- .content  -->
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -236,5 +263,6 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+
 </body>
 </html>

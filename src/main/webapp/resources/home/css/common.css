@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @import url('layout_base.css');
 
 /* reset element */
@@ -99,7 +100,7 @@ select {-webkit-appearance:none; height:30px; padding:0 5px; box-sizing:border-b
 
 /* common */
 html{height:100%;}
-body {height:100%; font-family:'Malgun Gothic','맑은 고딕',sans-serif; font-size:16px; letter-spacing:-1px; color:#444; white-space:normal; word-wrap:break-word;}
+body {height:100%; font-family:'Nanum Gothic','나눔 고딕',sans-serif; font-size:16px; letter-spacing:-1px; color:#444; white-space:normal; word-wrap:break-word;}
 input, select, textarea {box-sizing:border-box; font-size:15px; font-family:'Malgun Gothic','맑은 고딕',sans-serif; letter-spacing:-1px; color:#444; -webkit-appearance:none;}
 textarea {box-sizing:border-box; padding:10px; border:1px solid #ccc;}
 input, textarea {-webkit-appearance:none; border-radius:0;}
@@ -177,9 +178,9 @@ footer .foot_area .snslink li + li + li a {background-image:url(../img/ico_insta
 .visualRoll {position:relative; width:100%;}
 .viewImgList {position:relative; width:100%;}	
 .viewImgList li {text-align:center; height:550px; line-height:550px;}
-.viewImgList li.imglist0 {position:relative; z-index:50; background:url('../img/mainslide01.jpg') no-repeat center;}
-.viewImgList li.imglist1 {position:absolute; width:100%; left:0; top:0; z-index:10; background:url('../img/mainslide02.jpg') no-repeat center;}
-.viewImgList li.imglist2 {position:absolute; width:100%; left:0; top:0; z-index:10; background:url('../img/mainslide03.jpg') no-repeat center;}
+.viewImgList li.imglist0 {position:relative; z-index:50; background:#0068d1;}
+.viewImgList li.imglist1 {position:absolute; width:100%; left:0; top:0; z-index:10; background:#0068d1;}
+.viewImgList li.imglist2 {position:absolute; width:100%; left:0; top:0; z-index:10; background:#0068d1;}
 .viewImgList li {background-size:cover !important;}
 .viewImgList li .roll_content {position:;}
 .viewImgList li .roll_content .roll_txtline {position:absolute; left:0; bottom:60px; width:100%; line-height:1; text-align:center; font-size:22px; color:#fff; letter-spacing:2px;}
@@ -242,9 +243,9 @@ footer .foot_area .snslink li + li + li a {background-image:url(../img/ico_insta
 .pop_content .pop_list li .pop_txt p {padding-top:10px; line-height:1.8; font-size:17px; width:95%; margin:0 auto; overflow:hidden; word-break:keep-all; letter-spacing:-2px;}
 
 /* sub_page */
-.location_area {height:445px; background:url(../img/img_top2.jpg) no-repeat center bottom;}
+.location_area {height:445px; background:#0068d1;}
 .location_area.about {}
-.location_area.customer {background-image:url(../img/img_top2.jpg);}
+.location_area.customer {background:#0068d1;}
 .location_area.package {background-image:url(../img/img_top3.jpg);}
 .location_area.ticket {background-image:url(../img/img_top4.jpg);}
 .location_area.member {background-image:url(../img/img_top5.jpg);}
