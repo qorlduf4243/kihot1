@@ -89,13 +89,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/board/list" class="nav-link active">
+                <a href="#" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>회원 관리</p>
+                  <p>관리자 관리</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/board/list" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>게시물 관리</p>
                 </a>
@@ -134,7 +134,7 @@
                 </div>
                 </div>
                 <div class="col-1" style="display:inline-block" >
-                        <select class="form-control">
+                        <select id="searchType" class="form-control">
                           <option>--</option>
                         </select>
                         </div>
@@ -166,7 +166,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table class="table table-hover text-nowrap even_table">
                   <thead>
                     <tr>
                       <th>BNO</th>
@@ -206,15 +206,19 @@
                       <td><span class="badge badge-danger right">0</span></td>
                       </tr>
                   </tbody>
+                  </table>
+                  <table class="table table-hover text-nowrap">
+                   <tr>
             <td> <button type="submit" class="btn btn-primary">CREATE</button>
                </td>
-           <td>
+           <td colspan="4">
               <nav aria-label="Contacts Page Navigation">
             <ul class="pagination justify-content-center m-0">
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item active" ><a class="page-link" href="#">1</a></li>
             </ul>
           </nav>
                </td>
+               </tr>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -224,12 +228,8 @@
  
     
     </div>
-   <!-- ./Content Wrapper. Contains page content -->
+    <!-- /.content-header -->
 
-  <!-- Main content -->  
-   <div class="content">
-   
-   </div>
    <!-- .content  -->
 
   <!-- Control Sidebar -->
@@ -264,5 +264,36 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 
+
+<script>
+//==========고전적인 자바스크립트 방식 ===================//
+function myFunc() {   //function 함수이름(){ }
+   alert('테스트');
+}
+myFunc();//함수호출(콜)==실행
+//============JQuery 스크립트 방식 ===============//
+$(document).ready(function(){//함수명 없이 실행 콜백 함수.
+   alert('테스트2');
+   $(".even_table tbody tr:even").css({"background-color":"black","color":"white"})
+   var cnt = 131;
+   $(".btn-primary").bind("click", function(event){
+      $(".even_table tbody tr").each(function(index,item) {
+         $(item).addClass("hong_" + index);//class="hong_0","hong_1"
+      })
+      
+      // $("<tr><td>"+cnt+"</td><td>한출추가</td><td>내용추가</td><td>2020.07.15</td><td>100</td></tr>").prependTo(".even_table tbody");
+         //cnt = cnt + 1;
+         
+   });
+   
+   //$("table thead tr").css({"background-color":"red"});
+   //$("#searchType").css({"width":"150px"});//제이쿼리 JS
+   //document.getElementById("searchType").style.width="200px";//오리지널 JS
+   //$(".btn-primary").css({"background-color":"red"});
+   //$("tr").css("background","red");
+   //$("tr").css({"background-color":"red","color":"blue"});
+});
+//=============================================//
+</script>
 </body>
 </html>

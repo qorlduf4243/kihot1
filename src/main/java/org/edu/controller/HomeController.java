@@ -1,5 +1,6 @@
 package org.edu.controller;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -49,6 +50,65 @@ public class HomeController {
    private FileDataUtil fileDataUtil;
    
    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+   
+
+   /**
+    * 게시물관리 > 삭제 입니다.
+    * @throws Exception 
+    */
+   @RequestMapping(value = "/board/delete", method = RequestMethod.POST)
+   public String boardDelete(@RequestParam("bno") Integer bno, Locale locale, RedirectAttributes rdat) throws Exception {
+      List<String> files = boardService.selectAttach(bno);
+      
+      boardService.deleteBoard(bno);
+      
+      //첨부파일 삭제(아래)
+      for(String fileName : files) {
+         //삭제 명령문 추가(아래)
+         File target = new File(fileDataUtil.getUploadPath(), fileName);
+         if(target.exists()) {
+            target.delete();
+         }
+      }      
+      
+      rdat.addFlashAttribute("msg", "삭제");
+      return "redirect:/board/list";
+   }
+   
+   
+   /**
+    * 게시물관리 > 수정 입니다.
+    * @throws Exception 
+    */
+   @RequestMapping(value = "/board/update", method = RequestMethod.GET)
+   public String boardUpdate(@ModelAttribute("pageVO") PageVO pageVO, @RequestParam("bno") Integer bno, Locale locale, Model model) throws Exception {
+      BoardVO boardVO = boardService.viewBoard(bno);
+      model.addAttribute("boardVO", boardVO);
+      model.addAttribute("pageVO", pageVO);
+      return "board/board_update";
+   }
+   @RequestMapping(value = "/board/update", method = RequestMethod.POST)
+   public String boardUpdate(@ModelAttribute("pageVO") PageVO pageVO, MultipartFile file,@Valid BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+      if(file.getOriginalFilename() == "") {//조건:첨부파일 전송 값이 없다면
+         boardService.updateBoard(boardVO);
+      } else {
+         //기존등록된 첨부파일 삭제처리(아래)
+         List<String> delFiles = boardService.selectAttach(boardVO.getBno());
+         for(String fileName : delFiles) {
+            //실제파일 삭제
+            File target = new File(fileDataUtil.getUploadPath(), fileName);
+            if(target.exists()) { //조건:해당경로에 파일명이 존재하면
+               target.delete();  //파일삭제
+            }//End if
+         }//End for
+         //아래 신규파일 업로드
+         String[] files = fileDataUtil.fileUpload(file);//실제파일업로드후 파일명 리턴
+         boardVO.setFiles(files);//데이터베이스 <-> VO(get,set) <-> DAO클래스
+         boardService.updateBoard(boardVO);
+      }//End if
+      rdat.addFlashAttribute("msg", "수정");
+      return "redirect:/board/view?bno=" + boardVO.getBno() + "&page=" + pageVO.getPage();
+   }
    
    /**
     * 게시물관리 > 등록 입니다.
@@ -247,8 +307,7 @@ public class HomeController {
       pageVO.setPerPageNum(5);//1페이지당 보여줄 게시물 수 강제지정
       pageVO.setTotalCount(boardService.countBno(pageVO));//강제로 입력한 값을 쿼리로 대체OK.
       List<BoardVO> list = boardService.selectBoard(pageVO);
-      
-      //첨부파일 출력때문에 추가 Start
+      //첨부파일 출력 때문에 추가 Start
       List<BoardVO> boardListFiles = new ArrayList<BoardVO>();
       for(BoardVO vo:list) {
          List<String> files = boardService.selectAttach(vo.getBno());
@@ -260,11 +319,9 @@ public class HomeController {
          vo.setFiles(filenames);//여기까지는 view상세보기와 똑같다
          boardListFiles.add(vo);//상세보기에서 추가된 항목
       }
-      model.addAttribute("extNameArray", fileDataUtil.getExtNameArray());//첨부파일이 이미지파일이 맞는지
-      model.addAttribute("boardListFiles", boardListFiles);//첨부파일 출력용 jsp변수
-      //첨부파일 출력때문에 추가 End
-      
-      model.addAttribute("boardList", list);      
+      model.addAttribute("extNameArray", fileDataUtil.getExtNameArray());//첨부파일이 이미지인지 문서파일인 구분용 jsp변수
+      //첨부파일 출력 때문에 추가 End
+      model.addAttribute("boardList", boardListFiles);      
       return "home";
    }
    

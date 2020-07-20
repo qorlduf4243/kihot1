@@ -23,6 +23,8 @@
 		alert("${msg}에 성공하였습니다.!");
 	}
 </script>
+<!-- jQuery -->
+<script src="/resources/plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
