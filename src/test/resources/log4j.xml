@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+   <!-- Appenders -->
+   <appender name="console" class="org.apache.log4j.ConsoleAppender">
+      <param name="Target" value="System.out" />
+      <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%-5p: %c - %m%n" />
+      </layout>
+   </appender>
+   
+   <!-- 파일에 로그 찍기! -->
+    <!-- log4j-1.3alpha-8 스타일 - 패키지 변경 및 policy 처리로 구조 변경 됨 -->
+<appender name="fileLogger" class="org.apache.log4j.rolling.RollingFileAppender">
+	<rollingPolicy class="org.apache.log4j.rolling.FixedWindowRollingPolicy">
+		<param name="FileNamePattern" value="./spring.%i.log" />
+		<!-- %i 는 하단의 MaxIndex 값(현재 3) 을 받는다. 3개까지만 출력된다는 뜻 -->
+		<param name="MaxIndex" value="3" />
+	</rollingPolicy>
+	<triggeringPolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">
+		<param name="MaxFileSize" value="1000" />
+	</triggeringPolicy>
+	<layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" value="%d %5p [%c] %m%n" />
+	</layout>
+</appender>
+    
+   <!-- Application Loggers -->
+   <logger name="kr.or.test">
+   <level value="debug"></level>
+   </logger>
+   <logger name="org.edu.controller">
+      <level value="info" />
+   </logger>
+   
+   <!-- 3rdparty Loggers -->
+   <logger name="org.springframework.core">
+      <level value="info" />
+   </logger>   
+   
+   <logger name="org.springframework.beans">
+      <level value="info" />
+   </logger>
+   
+   <logger name="org.springframework.context">
+      <level value="info" />
+   </logger>
+
+   <logger name="org.springframework.web">
+      <level value="info" />
+   </logger>
+
+   <!-- Root Logger -->
+   <root>
+      <priority value="debug" />
+      <appender-ref ref="console" />
+      <appender-ref ref="fileLogger" />
+   </root>
+   
+</log4j:configuration>
